@@ -1,0 +1,18 @@
+//issue must be of the inputed issue type within the inputed project
+if (project == "projectkey" and issueType == "issuetypename"){
+    //get list of parent issues
+    string [] parents = getAllLinkedIssues(key, "derives", "-1");
+    //if there is at least one linked issue...
+    if (size(parents) >= "1"){
+        string childstatus = status;
+        string parentstatus;
+        //move each parent to select status if parent and child are both in Open status
+        for (string parent in parents){
+            parentstatus = %parent%.status;
+            if (parentstatus == "Open" and childstatus == "Open"){
+            //remove statusID# and fill with desired status #
+                autotransition(statusID#, parent);
+            }
+        }
+    }
+}
