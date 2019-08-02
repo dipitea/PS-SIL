@@ -1,0 +1,9 @@
+//this implementation is assuming that we use the 'derives' issue link, so that we can distinguish parent from child
+string [] parents = linkedIssues(key, "Derives", "1");
+for (string parent in parents){
+    if (%parent%.status == "statusname" and %parent%.projectKey == "projectkey"){
+        autotransition(41, %parent%.key);
+    } else {
+        return;
+    }
+}
