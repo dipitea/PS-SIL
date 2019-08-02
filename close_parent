@@ -1,0 +1,17 @@
+string [] parents = getLinkedIssues(key, "Derives", "-1");
+for (string parent in parents){
+    string [] siblings;
+    string [] children = getLinkedIssues(parent, "Derives", "1");
+    for (string child in children){
+        addElement(siblings, child);
+    }
+    for (string sibling in siblings){
+        if (%sibling%.status != "Closed"){
+            return;
+        }
+        else if (%sibling%.status == "Closed"){
+            continue;
+        }
+    }
+    autotransition(21, parent, true, true, true);
+}
