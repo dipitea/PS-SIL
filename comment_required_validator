@@ -1,0 +1,4 @@
+string errorMsg = "You must describe why this issue is being reopened.";
+if(!hasInput("comment")) {
+   return false, "comment", errorMsg;
+}
