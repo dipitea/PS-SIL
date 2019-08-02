@@ -1,0 +1,7 @@
+//list the statuses that should be hidden from the agent
+string [] FalseStatusList = {"statusname", "statusname", "statusname"};
+
+if (elementExists(FalseStatusList, status)) {
+ runnerLog("false status found");
+return false;
+}
